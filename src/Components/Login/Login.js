@@ -90,11 +90,13 @@ const googleLogin = () => {
       signInWithEmailAndPassword(user.email, user.password)
       .then(res => {
         handleResponse(res, true);
+        
       })
       // .catch( error => {
-      //   const newUserInfo = {...user};
-      //   newUserInfo.error = error.message;
-      //   setUser(newUserInfo);
+      //   // const newUserInfo = {...user};
+      // //   newUserInfo.error = error.message;
+      // //  setUser(newUserInfo.error);
+      // //  console.log(user.error)
       // })
     }
     e.preventDefault();
@@ -103,6 +105,9 @@ const googleLogin = () => {
 
   const handleResponse = (res, redirect) => {
     setUser(res);
+    // const errMsg = res.error
+    // console(errMsg)
+    console.log(res.error)
     setLoggedInUser(res);
     if(redirect) {
       history.replace(from);
@@ -158,7 +163,7 @@ const googleLogin = () => {
 
      <button style={{width: "300px"}} className="btn btn-light" onClick={fbLogin}> <img style={{width: "22px"}} src={facebook} alt=""/> Sign in using Facebook</button><br/> <br/>
      <button style={{width: "300px"}} className="btn btn-light" onClick={googleLogin}><img style={{width: "20px"}} src={google} alt=""/> Sign in using Google</button>
-    <p>{user.error.error}</p>
+    <p> {} </p>
     </div>
   );
 }

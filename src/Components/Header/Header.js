@@ -9,7 +9,7 @@ import { Avatar } from '@material-ui/core';
 
 const Header = () => {
   const [loggedInUser, setLoggedInUser] = useContext(UserContext);
-  console.log(loggedInUser)
+  // console.log(loggedInUser)
     const [value, setValue] = React.useState(2);
 
     const handleChange = (event, newValue) => {
