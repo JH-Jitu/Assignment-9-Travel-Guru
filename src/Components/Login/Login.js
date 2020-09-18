@@ -145,40 +145,25 @@ const googleLogin = () => {
       <Container maxWidth="sm" className="loginForm col-md-4" >
       <form onClick={handleSubmit} action="" >
 
-      <div class="input-group mb-3">
-                    <div className="input-group-prepend">
-                    {newUser && <span className="input-group-text" id="basic-addon1">Name</span>}
-                    </div>
-                    {newUser && <input type="text" name= "name" onBlur={handleBlur} required placeholder="Your Full Name"/>}
-            </div> 
+      
+                    {newUser && <input className="form-control" type="text" name= "name" onBlur={handleBlur} required placeholder="Your Full Name"/>}
+                    <br/>
         
-        <div class="input-group mb-3">
-                    <div className="input-group-prepend">
-                        <span className="input-group-text" id="basic-addon1">Email</span>
-                    </div>
-                    <input type="text" name="email" placeholder="Your email address" required onBlur={handleBlur}/>
-            </div> 
         
-            <div class="input-group mb-3">
-                    <div className="input-group-prepend">
-                        <span className="input-group-text" id="basic-addon1">Password</span>
-                    </div>
-                    <input type="password" name="password" placeholder="Type Password" required onBlur={handleBlur}/>
-            </div> 
+                    <input className="form-control" type="text" name="email" placeholder="Your email address" required onBlur={handleBlur}/>
+            <br/>
+        
+            
+                    <input className="form-control" type="password" name="password" placeholder="Type Password" required onBlur={handleBlur}/>
+            <br/>
 
-            {/* <div class="input-group mb-3">
-                    <div className="input-group-prepend">
-                    {newUser && <span className="input-group-text" id="basic-addon1">Confirm Password</span>}
-                    </div>
-                    {newUser && <input required type="password" name= "passConfirm" onBlur={handleBlur} placeholder="Confirm your password"/>}
-            </div> */}
+            
+                    {/* {newUser && <input className="form-control" required type="password" name= "passConfirm" onBlur={handleBlur} placeholder="Confirm your password"/>} */}
+            
 
-            <div class="input-group mb-3">
-                    <div className="input-group-prepend">
-                        
-                    </div>
-                    <input type="submit" className="btn btn-light" value={newUser? "Sign up": "Sign in"}/>
-            </div> 
+            <br/>
+                    <button  type="submit" className="btn btn-light"> {newUser? "Sign up": "Sign in"}</button>
+            
         
         
       </form></Container> <div className="col-md-4"></div></div> <br/>
