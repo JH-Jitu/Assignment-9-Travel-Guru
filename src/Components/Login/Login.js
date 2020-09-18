@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { useContext } from 'react';
 import { UserContext } from '../../App';
 import { useHistory, useLocation } from 'react-router-dom';
-import { initializeLoginFramework, handleFbLogin, createUserWithEmailAndPassword, signInWithEmailAndPassword, handleGoogleSignIn } from './LoginManager';
+import { initializeLoginFramework, handleFbLogin, createUserWithEmailAndPassword, signInWithEmailAndPassword, handleGoogleSignIn, resetPassword } from './LoginManager';
 import './Login.css'
 import { Container } from '@material-ui/core';
 import google from './google.png';
@@ -130,7 +130,9 @@ const googleLogin = () => {
     //   alert(res.error);
     // }
   }
-  
+  const handleResetPass = () => {
+    resetPassword(user.email);
+  }
 
 
   return (
@@ -169,10 +171,12 @@ const googleLogin = () => {
       </form></Container> <div className="col-md-4"></div></div> <br/>
       {user.error? <p style={{backgroundColor: 'lightgray', opacity: "60%"}}> {user.error} <br/> <small> Please type you Email and Password again!</small> </p> : ""}
       {/* {user.success && <p style={{color: "green"}}>{newUser? "Account created Successfully": "Signed in successfully"}</p>} */}
-
+<br/>
+      <button style={{width: "300px"}} className="btn btn-light" onClick={handleResetPass}> Reset Password</button> <br/> <br/>
+      
      <button style={{width: "300px"}} className="btn btn-light" onClick={fbLogin}> <img style={{width: "22px"}} src={facebook} alt=""/> Sign in using Facebook</button><br/> <br/>
      <button style={{width: "300px"}} className="btn btn-light" onClick={googleLogin}><img style={{width: "20px"}} src={google} alt=""/> Sign in using Google</button>
-    <p> {} </p>
+    
     </div>
   );
 }

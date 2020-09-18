@@ -108,3 +108,12 @@ const updateUserName = name=> {
     console.log(error)
   });
   }
+
+  export const resetPassword = email => {
+      var auth = firebase.auth();
+  auth.sendPasswordResetEmail(email).then(function() {
+    // Email sent.
+  }).catch(function(error) {
+    // An error happened.
+});
+  }
