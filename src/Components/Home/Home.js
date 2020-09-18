@@ -3,6 +3,7 @@ import "react-responsive-carousel/lib/styles/carousel.min.css";
 import "./Home.css"
 
 import { useHistory } from 'react-router-dom';
+import { Button, Container } from '@material-ui/core';
 
 export default function Home({room}){
     // const {imgUrl} = props.room
@@ -13,12 +14,12 @@ export default function Home({room}){
     // console.log(room.name)
 
     return (
-        <div className="container">
+        <Container className="placesDetail">
             <div className="placeName">
                 <div >
                     <img src={room.image} alt=""/>
-                    <h3>{room.name}</h3>
-                    <button onClick={() => handleBook(room.placeLink)} variant="contained" color="primary">Book The room</button>
+                    <h5>{room.name}</h5>
+                    <button className="btn btn-light" onClick={() => handleBook(room.placeLink)} variant="contained" color="primary">Book The room</button>
                 </div>
                 {/* <div>
                     <img src={img2} alt=""/>
@@ -30,7 +31,7 @@ export default function Home({room}){
                 </div> */}
             </div>
             
-        </div>
+        </Container>
     );
 };
 

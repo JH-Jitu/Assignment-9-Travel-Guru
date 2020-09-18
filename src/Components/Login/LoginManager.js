@@ -8,6 +8,26 @@ export const initializeLoginFramework = () =>{
     }
 }
 
+export const handleGoogleSignIn = () => {
+  const provider = new firebase.auth.GoogleAuthProvider();
+  return firebase.auth().signInWithPopup(provider)
+  .then(res => {
+    const {displayName, photoURL, email} = res.user;
+    const signedInUser ={
+      isSignedIn: true,
+      name: displayName,
+      photo: photoURL,
+      email: email
+    }
+    return signedInUser;
+  })
+  .catch(err=>{
+    console.log(err);
+    console.log(err.message);
+  })
+  // console.log("Clicked")
+}
+
 export const handleFbLogin = () => {
     const fbProvider = new firebase.auth.FacebookAuthProvider();
     return firebase.auth().signInWithPopup(fbProvider).then(function(result) {

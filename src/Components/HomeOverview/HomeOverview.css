@@ -1,0 +1,12 @@
+.LeftSidePart img{
+    border-radius: 5px;
+    border: 1px solid rgb(107, 104, 104);
+    padding: 15px;
+    box-shadow: 5px 10px 25px lightgray;
+}
+
+
+
+.RightSidePart{
+    align-content: center;
+}

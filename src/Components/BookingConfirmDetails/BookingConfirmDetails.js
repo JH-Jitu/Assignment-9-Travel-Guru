@@ -1,10 +1,12 @@
+import { Star } from '@material-ui/icons';
 import React, { useEffect, useState } from 'react';
 // import { useParams } from 'react-router-dom';
 // import BookingFinal from '../BookingFinal/BookingFinal';
+import "./BookingConfirmDetails.css"
 
 const BookingConfirmDetails = (props) => {
 
-    const {name, price, rating, doubleBed, image} = props.hotelValue;
+    const {name, price, Rating, doubleBed, image} = props.hotelValue;
     console.log(name);
     
     // const {placeLink} = useParams();
@@ -33,15 +35,18 @@ const BookingConfirmDetails = (props) => {
 
 
     return (
-        <div>
-           <div>
-            <img src={image} alt=""/>
-            <p>Name: {name}</p>
+        <div className="hotelDetails">
+           <div className="row">
+               <div className="col-md-6">
+            <img style={{width: "200px"}}src={image} alt=""/>
+            </div>
+            <div className="col-md-6 col-sm-12" style={{backgroundColor: 'lightgray', opacity: "60%"}}>
+            <p>{name} </p>
+            <p><Star></Star> {Rating}</p>
             <p> <small> Deal value: {price}$/night </small></p>
-            <p><small>Rating: {rating}</small></p>
             <p><small>Double Bed: {doubleBed} </small></p>
             </div> 
-            
+            </div>
             
             
             

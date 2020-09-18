@@ -1,8 +1,17 @@
-.slider{
+.placesDetail{
+    padding: 25px 2px;
+    border-radius: 5px;
+    border: 1px solid rgb(92, 89, 89);
+    box-shadow: 5px 10px 20px white;
     color: white;
-    background-color: lightgrey;
-   
+    margin-top: 40px;
 }
 .placeName img{
     width: 200px;
+    border-radius: 5px;
+    border: 2px solid white;
+}
+.placeName img:hover{
+    background-color: lightgray;
+    width: 225px;
 }

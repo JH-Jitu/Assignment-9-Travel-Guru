@@ -10,7 +10,7 @@ const BookingConfirm = (props) => {
     // console.log(placeLink);
     // const [placeDetail, setPlaceDetail] = useState([]);
     const {map, hotels} = fakeData.find(visitingPlace => visitingPlace.name === placeLink);
-    console.log(map);
+    console.log(hotels);
     // console.log(props)
 
     // Maps:
@@ -23,10 +23,13 @@ const BookingConfirm = (props) => {
     // }, [])
     
     return (
-        <div style={{textAlign: 'center'}}>
-            <h1>Let's book a {placeLink} Room.</h1>
+        <div  style={{textAlign: 'center'}}>
+            <h1>Your {placeLink}'s room has been booked!</h1>
+            <p style={{backgroundColor: 'lightgray', opacity: "60%"}}>Want to go <Link style={{textDecoration: "none"}} to="/home"><button className="btn btn-light"> other places?</button></Link> </p>
+        <div className="row">
+            
             {/* <img src={imgUrl} alt=""/> */}
-            <p>Want a <Link to="/home">different room?</Link> </p>
+            
             
             {/* <div>
             {
@@ -34,15 +37,16 @@ const BookingConfirm = (props) => {
                     // key={room.bedType}
                      hotels={hotels}> </BookingConfirmDetails>)
             }</div> */}
-            <div>
+            <div className="col-md-6 col-sm-12">
             {hotels.map(hotelValue => <BookingConfirmDetails hotelValue={hotelValue}></BookingConfirmDetails>)}
             
             </div>
-
-            <div>
-            <iframe src={map} width="100%" height="675" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+            <div className="col-md-1"></div>
+            <div className="col-md-5 col-sm-12 LeftSidePart">
+                <h3>Find Us On Map</h3>
+            <iframe src={map} width="400px" height="400px" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
             </div>
-        </div>
+        </div></div>
     );
 };
 

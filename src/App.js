@@ -4,7 +4,6 @@ import './App.css';
 import Header from './Components/Header/Header';
 import Home from './Components/Home/Home';
 import HomeOverview from './Components/HomeOverview/HomeOverview';
-import HomeAgain from './Components/HomeAgain/HomeAgain';
 import Book from './Components/Book/Book';
 import BookingConfirm from './Components/BookingConfirm/BookingConfirm';
 import PrivateRoute from './Components/PrivateRouter/PrivateRouter';
@@ -27,7 +26,7 @@ function App() {
     <div className="App">
       <UserContext.Provider value = {[loggedInUser, setLoggedInUser]}>
       <Router>
-      <Header></Header>
+      <Header></Header> <br/>
       <Container>
       <Switch>
         <Route exact path="/">
@@ -46,11 +45,12 @@ function App() {
       <BookingConfirm></BookingConfirm>
       
       </PrivateRoute>
-      </Switch>
-      <br/> <br/><br/><br/>
-      <MapGoogle align="center">
-        </MapGoogle></Container>
+      </Switch> 
+      </Container>
       </Router>
+      <br/> <br/><br/><br/>
+      {/* <MapGoogle>
+        </MapGoogle> */}
       </UserContext.Provider>
     </div>
   );
