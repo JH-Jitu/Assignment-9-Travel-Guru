@@ -8,7 +8,9 @@ const BookingConfirmDetails = (props) => {
 
     const {name, price, Rating, doubleBed, image} = props.hotelValue;
     console.log(name);
-    
+
+        // This are practice Part. I tried this part with statements. It worked but had some issue.//
+
     // const {placeLink} = useParams();
     // // console.log(placeLink);
     // const hotelInPlace = props.hotels.hotels;
@@ -32,7 +34,7 @@ const BookingConfirmDetails = (props) => {
     // console.log(hotelInPlace)
     
     // console.log(hotelInPlace);
-
+                            // *****************************//
 
     return (
         <div className="hotelDetails">
@@ -50,10 +52,10 @@ const BookingConfirmDetails = (props) => {
             
             
             
-            
-            
-            
-            
+
+                        {/* This are practice part */}
+
+
             {/* <div> */}
             {/* <h5>Name: {hotelInPlace}</h5> */}
             {/* {

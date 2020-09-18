@@ -49,8 +49,8 @@ function App() {
       </Container>
       </Router>
       <br/> <br/><br/><br/>
-      {/* <MapGoogle>
-        </MapGoogle> */}
+      <MapGoogle>
+        </MapGoogle>
       </UserContext.Provider>
     </div>
   );

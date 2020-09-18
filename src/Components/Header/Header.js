@@ -26,7 +26,7 @@ const Header = () => {
         onChange={handleChange}
         aria-label="disabled tabs example"
       >
-        <Tab label="Home" />
+        <Link to ="/home"><Tab label="Home" /></Link> 
         <Tab label="Status" />
         <Tab label="Activity" />
         {
@@ -37,7 +37,7 @@ const Header = () => {
         {
         loggedInUser.displayName && <Tab label={loggedInUser.displayName}></Tab>
         }
-        <Avatar align="center" alt="Remy Sharp" src={loggedInUser.photo} />
+        <Avatar align="center" alt="Remy Sharp" src={loggedInUser.photoURL} />
       </Tabs>
       
     

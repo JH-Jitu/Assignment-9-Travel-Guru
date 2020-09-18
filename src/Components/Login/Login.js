@@ -56,10 +56,11 @@ const googleLogin = () => {
     })
   }
 
+  // const [formValidation, setFormValidation] = useState(true);
   const handleBlur = (e)=>{
     console.log(e.target.name, e.target.value);
     
-    let isFormValid = true;
+    let isFormValid;
     if(e.target.name === 'email'){
       isFormValid = /\S+@\S+\.\S+/.test(e.target.value)
       
@@ -70,13 +71,20 @@ const googleLogin = () => {
       const passCaseCheck = e.target.value.length > 7;
         isFormValid = isValidPassword && passCaseCheck
     }
+    // if(e.target.name === 'passConfirm'){
+    //   const isValidPassword = /\d{1}/.test(e.target.value)
+    //   const passCaseCheck = e.target.value.length > 7;
+    //     isFormValid = isValidPassword && passCaseCheck
+    // }
     if(isFormValid){
       // [...cart, newItem]
       const newUserInfo = {...user};
       newUserInfo[e.target.name] = e.target.value;
       setUser(newUserInfo);
     }
+    
   }
+  
   const handleSubmit = (e)=>{
 
     if(newUser && user.email && user.password){
@@ -84,13 +92,18 @@ const googleLogin = () => {
       .then(res => {
         handleResponse(res, true);
       })
+      .catch(error => {
+        handleResponse(error, true)
+      })
     }
 
     if(!newUser && user.email && user.password){
       signInWithEmailAndPassword(user.email, user.password)
       .then(res => {
-        handleResponse(res, true);
-        
+        handleResponse(res, true);       
+      })
+      .catch(error => {
+        handleResponse(error, true)
       })
       // .catch( error => {
       //   // const newUserInfo = {...user};
@@ -109,9 +122,13 @@ const googleLogin = () => {
     // console(errMsg)
     console.log(res.error)
     setLoggedInUser(res);
-    if(redirect) {
+    if(!res.error) {
+      redirect = true;
       history.replace(from);
     }
+    // else if(res.error) {
+    //   alert(res.error);
+    // }
   }
   
 
@@ -132,7 +149,7 @@ const googleLogin = () => {
                     <div className="input-group-prepend">
                     {newUser && <span className="input-group-text" id="basic-addon1">Name</span>}
                     </div>
-                    {newUser && <input type="text" name= "name" onBlur={handleBlur} placeholder="Your Full Name"/>}
+                    {newUser && <input type="text" name= "name" onBlur={handleBlur} required placeholder="Your Full Name"/>}
             </div> 
         
         <div class="input-group mb-3">
@@ -148,7 +165,14 @@ const googleLogin = () => {
                     </div>
                     <input type="password" name="password" placeholder="Type Password" required onBlur={handleBlur}/>
             </div> 
-        
+
+            {/* <div class="input-group mb-3">
+                    <div className="input-group-prepend">
+                    {newUser && <span className="input-group-text" id="basic-addon1">Confirm Password</span>}
+                    </div>
+                    {newUser && <input required type="password" name= "passConfirm" onBlur={handleBlur} placeholder="Confirm your password"/>}
+            </div> */}
+
             <div class="input-group mb-3">
                     <div className="input-group-prepend">
                         
@@ -157,9 +181,9 @@ const googleLogin = () => {
             </div> 
         
         
-      </form></Container> <div className="col-md-4"></div></div>
-      <p style={{color: 'red'}}> {user.error}</p>
-      {user.success && <p style={{color: "green"}}>{newUser? "Account created Successfully": "Signed in successfully"}</p>}
+      </form></Container> <div className="col-md-4"></div></div> <br/>
+      {user.error? <p style={{backgroundColor: 'lightgray', opacity: "60%"}}> {user.error} <br/> <small> Please type you Email and Password again!</small> </p> : ""}
+      {/* {user.success && <p style={{color: "green"}}>{newUser? "Account created Successfully": "Signed in successfully"}</p>} */}
 
      <button style={{width: "300px"}} className="btn btn-light" onClick={fbLogin}> <img style={{width: "22px"}} src={facebook} alt=""/> Sign in using Facebook</button><br/> <br/>
      <button style={{width: "300px"}} className="btn btn-light" onClick={googleLogin}><img style={{width: "20px"}} src={google} alt=""/> Sign in using Google</button>

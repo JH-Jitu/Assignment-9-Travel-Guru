@@ -13,17 +13,18 @@ export const handleGoogleSignIn = () => {
   return firebase.auth().signInWithPopup(provider)
   .then(res => {
     const {displayName, photoURL, email} = res.user;
+    var user = res.user;
     const signedInUser ={
       isSignedIn: true,
       name: displayName,
       photo: photoURL,
       email: email
     }
-    return signedInUser;
+    return user;
   })
-  .catch(err=>{
-    console.log(err);
-    console.log(err.message);
+  .catch(error=>{
+    console.log(error);
+    console.log(error.message);
   })
   // console.log("Clicked")
 }
